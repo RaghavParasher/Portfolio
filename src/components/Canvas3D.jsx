@@ -60,6 +60,18 @@ function SceneController({ activeSection }) {
 }
 
 export default function Canvas3D({ activeSection }) {
+  const getGlowColor = () => {
+    switch (activeSection) {
+      case 'summary': return '#8b5cf6'; // Purple
+      case 'experience': return '#6366f1'; // Indigo
+      case 'projects': return '#d946ef'; // Magenta
+      case 'skills': return '#8b5cf6';
+      case 'certificates': return '#6366f1';
+      case 'contact': return '#d946ef';
+      default: return '#6366f1';
+    }
+  };
+
   return (
     <Canvas
       gl={{ antialias: true, alpha: true }}
@@ -69,7 +81,9 @@ export default function Canvas3D({ activeSection }) {
       <ambientLight intensity={0.4} />
       <directionalLight position={[10, 10, 5]} intensity={1.5} color="#8b5cf6" />
       <directionalLight position={[-10, -10, -5]} intensity={0.8} color="#d946ef" />
-      <pointLight position={[0, 0, 2]} intensity={2.0} color="#6366f1" />
+      
+      {/* Dynamic glowing point light that shifts color with the active section */}
+      <pointLight position={[0, 0, 2]} intensity={3.5} distance={12} color={getGlowColor()} />
 
       {/* Cosmic background stars */}
       <Stars radius={100} depth={50} count={2000} factor={4} saturation={0.5} fade speed={1} />

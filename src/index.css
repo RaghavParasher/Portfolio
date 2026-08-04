@@ -29,7 +29,13 @@
 }
 
 body {
-  background-color: var(--space-dark);
+  background: radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.16), transparent 45%),
+              radial-gradient(circle at 80% 70%, rgba(217, 70, 239, 0.14), transparent 45%),
+              radial-gradient(circle at 50% 15%, rgba(139, 92, 246, 0.1), transparent 50%),
+              var(--space-dark);
+  background-size: 200% 200%;
+  animation: spaceDrift 25s ease infinite alternate;
+  background-attachment: fixed;
   color: var(--text-primary);
   font-family: var(--font-body);
   overflow-x: hidden;
@@ -37,6 +43,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@keyframes spaceDrift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
 
 /* Scrollbar Customization */
 ::-webkit-scrollbar {
@@ -708,5 +724,18 @@ textarea.form-input {
   .btn-primary, .btn-secondary {
     justify-content: center;
     width: 100%;
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

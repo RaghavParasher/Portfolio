@@ -53,15 +53,49 @@ const Linkedin = ({ size = 24, ...props }) => (
 export default function PortfolioSections() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.name && formData.email && formData.message) {
-      setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        setFormData({ name: '', email: '', message: '' });
-      }, 3000);
+      setSending(true);
+      
+      // Read Web3Forms key from Vite env variables or use fallback placeholder
+      const apiKey = import.meta.env.VITE_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
+      
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify({
+            access_key: apiKey,
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            subject: `New Portfolio Message from ${formData.name}`,
+            from_name: "3D Resume Portfolio"
+          })
+        });
+
+        const result = await response.json();
+        
+        if (result.success) {
+          setSubmitted(true);
+          setFormData({ name: '', email: '', message: '' });
+        } else {
+          alert("Failed to send message: " + result.message);
+        }
+      } catch (error) {
+        alert("An error occurred while sending the message. Please check your connection.");
+      } finally {
+        setSending(false);
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 3000);
+      }
     }
   };
 
@@ -381,13 +415,21 @@ export default function PortfolioSections() {
                 ></textarea>
               </div>
 
-              <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start' }}>
-                {submitted ? (
+              <button 
+                type="submit" 
+                className="btn-primary" 
+                style={{ alignSelf: 'flex-start' }}
+                disabled={sending || submitted}
+              >
+                {sending ? (
+                  <>Sending... <Send size={18} className="animate-spin" /></>
+                ) : submitted ? (
                   <>Sent Successfully! <CheckCircle2 size={18} /></>
                 ) : (
                   <>Send Message <Send size={18} /></>
                 )}
               </button>
+
             </form>
           </div>
         </div>

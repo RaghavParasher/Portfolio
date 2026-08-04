@@ -2,9 +2,30 @@ import React, { useRef, useMemo, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
+// Helper function to programmatically generate a circular glow texture
+const createCircleTexture = () => {
+  const canvas = document.createElement('canvas');
+  canvas.width = 32;
+  canvas.height = 32;
+  const ctx = canvas.getContext('2d');
+  
+  const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+  gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+  gradient.addColorStop(0.2, 'rgba(255, 255, 255, 0.8)');
+  gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+  
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, 32, 32);
+  
+  return new THREE.CanvasTexture(canvas);
+};
+
 export default function FloatingParticles({ count = 500 }) {
   const pointsRef = useRef();
   const { mouse } = useThree();
+
+  // Memoize texture to avoid re-creation
+  const particleTexture = useMemo(() => createCircleTexture(), []);
 
   // Create random particles coordinate array
   const [positions, colors] = useMemo(() => {
@@ -18,7 +39,6 @@ export default function FloatingParticles({ count = 500 }) {
     ];
 
     for (let i = 0; i < count; i++) {
-      // Distribute particles in a sphere/box
       const r = 4 + Math.random() * 8;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
@@ -27,7 +47,6 @@ export default function FloatingParticles({ count = 500 }) {
       pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
       pos[i * 3 + 2] = r * Math.cos(phi);
 
-      // Random color selection
       const chosenColor = colorChoices[Math.floor(Math.random() * colorChoices.length)];
       col[i * 3] = chosenColor.r;
       col[i * 3 + 1] = chosenColor.g;
@@ -40,14 +59,12 @@ export default function FloatingParticles({ count = 500 }) {
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
     
-    // Slow rotational drift
     if (pointsRef.current) {
-      pointsRef.current.rotation.y = time * 0.02;
-      pointsRef.current.rotation.x = time * 0.01;
+      pointsRef.current.rotation.y = time * 0.015;
+      pointsRef.current.rotation.x = time * 0.005;
 
-      // Mouse interactivity - particles drift slightly away/toward cursor coordinates
-      const targetX = mouse.x * 0.5;
-      const targetY = mouse.y * 0.5;
+      const targetX = mouse.x * 0.4;
+      const targetY = mouse.y * 0.4;
       
       pointsRef.current.position.x += (targetX - pointsRef.current.position.x) * 0.05;
       pointsRef.current.position.y += (targetY - pointsRef.current.position.y) * 0.05;
@@ -67,10 +84,11 @@ export default function FloatingParticles({ count = 500 }) {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.06}
+        size={0.16}
+        map={particleTexture}
         vertexColors
         transparent
-        opacity={0.8}
+        opacity={0.85}
         sizeAttenuation={true}
         depthWrite={false}
         blending={THREE.AdditiveBlending}
