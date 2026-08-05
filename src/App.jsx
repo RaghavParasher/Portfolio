@@ -70,7 +70,6 @@ function App() {
         {/* Footer */}
         <footer className="footer">
           <p>&copy; {new Date().getFullYear()} Raghav Parasher. All rights reserved.</p>
-          <p>Created with React, Three.js, and Vanilla CSS. Hosted on Vercel.</p>
         </footer>
       </div>
     </>
