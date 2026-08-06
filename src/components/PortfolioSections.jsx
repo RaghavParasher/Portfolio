@@ -112,7 +112,7 @@ export default function PortfolioSections() {
           Hi, I am <span>Raghav Parasher</span>
         </h1>
         <p className="hero-desc">
-          A Full Stack Developer with hands-on experience in designing, developing, and deploying scalable web applications using the MERN stack. Proficient in modern frontend frame works, backend architectures, databases, and containerization. Passionate about solving complex problems and engineering robust software systems.
+          I didn't just choose software development; I fell in love with the magic of bringing ideas to life through code. As a Full Stack Software Engineer, I spend my time bridging the gap between robust backend architectures and highly responsive, intuitive user interfaces. I build with performance, security, and scalability in mind.
         </p>
         <div className="cta-group">
           <a href="#contact" className="btn-primary">
@@ -143,6 +143,15 @@ export default function PortfolioSections() {
                 <li>Designed, coded, and tested modular full-stack features and resolved critical platform bugs during the SDLC.</li>
                 <li>Collaborated with cross-functional engineering teams using Git version control and Agile methodology.</li>
               </ul>
+              <a 
+                href="https://www.linkedin.com/in/raghavparasher/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="project-link"
+                style={{ marginTop: '0.6rem', display: 'inline-flex', fontSize: '0.85rem' }}
+              >
+                View Internship Certificate <ExternalLink size={14} />
+              </a>
             </div>
 
             {/* Experience 2 */}
@@ -159,6 +168,15 @@ export default function PortfolioSections() {
                 <li>Co-developed modular backend logic and designed user dashboard panels using React.js and Express.js.</li>
                 <li>Resolved production code bugs and implemented requested features within sprint-based delivery schedules.</li>
               </ul>
+              <a 
+                href="https://www.linkedin.com/in/raghavparasher/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="project-link"
+                style={{ marginTop: '0.6rem', display: 'inline-flex', fontSize: '0.85rem' }}
+              >
+                View Internship Certificate <ExternalLink size={14} />
+              </a>
             </div>
           </div>
         </div>
@@ -273,57 +291,99 @@ export default function PortfolioSections() {
       <section id="certificates" className="section">
         <h2 className="section-title">Certifications</h2>
         <div className="certificates-grid">
-          {/* Certificate 1 */}
+          {/* Certificate 1 - Microsoft Azure */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
-              <span className="cert-name">Software Engineer Intern</span>
-              <span className="cert-issuer">HackerRank (2026)</span>
-            </div>
-          </div>
-
-          {/* Certificate 2 */}
-          <div className="glass-card cert-card">
-            <div className="cert-icon"><Award size={20} /></div>
-            <div className="cert-info">
-              <span className="cert-name">React (Basic)</span>
-              <span className="cert-issuer">HackerRank (2026)</span>
-            </div>
-          </div>
-
-          {/* Certificate 3 */}
-          <div className="glass-card cert-card">
-            <div className="cert-icon"><Award size={20} /></div>
-            <div className="cert-info">
-              <span className="cert-name">Develop Solutions for Azure (AZ-204)</span>
+              <span className="cert-name">Microsoft Certified: Azure Developer Associate (AZ-204)</span>
               <span className="cert-issuer">Microsoft (2025)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
             </div>
           </div>
 
-          {/* Certificate 4 */}
+          {/* Certificate 2 - JPMorgan Chase */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
-              <span className="cert-name">JavaScript (Intermediate)</span>
-              <span className="cert-issuer">HackerRank (2026)</span>
+              <span className="cert-name">JPMorgan Chase - Software Engineering Job Simulation</span>
+              <span className="cert-issuer">Forage (2026)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
             </div>
           </div>
 
-          {/* Certificate 5 */}
+          {/* Certificate 3 - Digital Heroes */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
               <span className="cert-name">Full Stack Developer Training</span>
               <span className="cert-issuer">Digital Heroes (2026)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
             </div>
           </div>
 
-          {/* Certificate 6 */}
+          {/* Certificate 4 - Google Analytics */}
+          <div className="glass-card cert-card">
+            <div className="cert-icon"><Award size={20} /></div>
+            <div className="cert-info">
+              <span className="cert-name">Google Analytics Certification</span>
+              <span className="cert-issuer">United Latino Students Association (2025)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+
+          {/* Certificate 5 - HackerRank Software Engineer */}
+          <div className="glass-card cert-card">
+            <div className="cert-icon"><Award size={20} /></div>
+            <div className="cert-info">
+              <span className="cert-name">Software Engineer Intern</span>
+              <span className="cert-issuer">HackerRank (2026)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+
+          {/* Certificate 6 - HackerRank React */}
+          <div className="glass-card cert-card">
+            <div className="cert-icon"><Award size={20} /></div>
+            <div className="cert-info">
+              <span className="cert-name">React (Basic)</span>
+              <span className="cert-issuer">HackerRank (2026)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+
+          {/* Certificate 7 - HackerRank JS */}
+          <div className="glass-card cert-card">
+            <div className="cert-icon"><Award size={20} /></div>
+            <div className="cert-info">
+              <span className="cert-name">JavaScript (Intermediate)</span>
+              <span className="cert-issuer">HackerRank (2026)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+
+          {/* Certificate 8 - TCS iON */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
               <span className="cert-name">AI Foundation Course</span>
               <span className="cert-issuer">TCS iON (2026)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
             </div>
           </div>
         </div>
