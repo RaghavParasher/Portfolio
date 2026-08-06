@@ -62,13 +62,13 @@ function SceneController({ activeSection }) {
 export default function Canvas3D({ activeSection }) {
   const getGlowColor = () => {
     switch (activeSection) {
-      case 'summary': return '#8b5cf6'; // Purple
-      case 'experience': return '#6366f1'; // Indigo
-      case 'projects': return '#d946ef'; // Magenta
-      case 'skills': return '#8b5cf6';
-      case 'certificates': return '#6366f1';
-      case 'contact': return '#d946ef';
-      default: return '#6366f1';
+      case 'summary': return '#fbbf24'; // Warm Golden Sun
+      case 'experience': return '#38bdf8'; // Cyan
+      case 'projects': return '#f472b6'; // Pink
+      case 'skills': return '#fbbf24'; // Amber
+      case 'certificates': return '#818cf8'; // Indigo
+      case 'contact': return '#fbbf24'; // Gold
+      default: return '#fbbf24';
     }
   };
 
@@ -78,12 +78,12 @@ export default function Canvas3D({ activeSection }) {
       camera={{ position: [0, 0, 5.5], fov: 60 }}
       style={{ background: 'transparent' }}
     >
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[10, 10, 5]} intensity={1.5} color="#8b5cf6" />
-      <directionalLight position={[-10, -10, -5]} intensity={0.8} color="#d946ef" />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} intensity={1.5} color="#fbbf24" />
+      <directionalLight position={[-10, -10, -5]} intensity={0.8} color="#6366f1" />
       
-      {/* Dynamic glowing point light that shifts color with the active section */}
-      <pointLight position={[0, 0, 2]} intensity={3.5} distance={12} color={getGlowColor()} />
+      {/* Central light source matching the Sun's position and color */}
+      <pointLight position={[0, 0, 0]} intensity={4.5} distance={15} color={getGlowColor()} />
 
       {/* Cosmic background stars */}
       <Stars radius={100} depth={50} count={2000} factor={4} saturation={0.5} fade speed={1} />

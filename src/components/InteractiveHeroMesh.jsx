@@ -1,132 +1,104 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 export default function InteractiveHeroMesh({ activeSection }) {
   const groupRef = useRef();
-  const innerMeshRef = useRef();
-  const outerWireframeRef = useRef();
-  const ringRef1 = useRef();
-  const ringRef2 = useRef();
+  const sunRef = useRef();
+  const coronaRef = useRef();
+  const orbitsRef = useRef([]);
 
-  const [hovered, setHovered] = useState(false);
-
-  // Colors mapping for sections
-  const getColors = () => {
-    switch (activeSection) {
-      case 'summary':
-        return { inner: '#8b5cf6', outer: '#d946ef', ring: '#6366f1' };
-      case 'experience':
-        return { inner: '#6366f1', outer: '#8b5cf6', ring: '#d946ef' };
-      case 'projects':
-        return { inner: '#d946ef', outer: '#6366f1', ring: '#8b5cf6' };
-      case 'skills':
-        return { inner: '#8b5cf6', outer: '#d946ef', ring: '#6366f1' };
-      case 'certificates':
-        return { inner: '#6366f1', outer: '#8b5cf6', ring: '#d946ef' };
-      case 'contact':
-        return { inner: '#d946ef', outer: '#6366f1', ring: '#8b5cf6' };
-      default:
-        return { inner: '#8b5cf6', outer: '#d946ef', ring: '#6366f1' };
-    }
-  };
-
-  const colors = getColors();
+  // Data for the 6 planets representing your 6 projects
+  const planetsData = [
+    { name: 'PulseMeet', radius: 1.2, speed: 0.9, size: 0.14, color: '#c084fc' }, // Purple
+    { name: 'SkillForge', radius: 1.7, speed: 0.7, size: 0.16, color: '#38bdf8' }, // Cyan/Blue
+    { name: 'TaskManager', radius: 2.2, speed: 0.5, size: 0.18, color: '#f472b6' }, // Pink
+    { name: 'StudyBuddy', radius: 2.7, speed: 0.35, size: 0.15, color: '#34d399' }, // Green
+    { name: 'ChatApp', radius: 3.2, speed: 0.25, size: 0.17, color: '#fbbf24' }, // Yellow/Amber
+    { name: 'EquiSplit', radius: 3.7, speed: 0.18, size: 0.13, color: '#818cf8' }, // Indigo
+  ];
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
-    const speed = hovered ? 2.5 : 1.0;
 
     if (groupRef.current) {
-      // Gentle overall group rotation and floating movement
-      groupRef.current.position.y = Math.sin(time * 0.8) * 0.15;
-      groupRef.current.rotation.y = time * 0.05 * speed;
+      // Gentle overall solar system tilt and slow float
+      groupRef.current.position.y = Math.sin(time * 0.5) * 0.1;
+      // Slight cosmic rotation of the system
+      groupRef.current.rotation.x = Math.PI / 8; // Tilt toward camera slightly
     }
 
-    if (innerMeshRef.current) {
-      // Inner mesh breathing animation
-      const scaleVal = 1.0 + Math.sin(time * 2.0) * 0.05;
-      innerMeshRef.current.scale.set(scaleVal, scaleVal, scaleVal);
-      innerMeshRef.current.rotation.x = time * 0.2;
-    }
-
-    if (outerWireframeRef.current) {
-      // Rotate outer wireframe sphere in the opposite direction
-      outerWireframeRef.current.rotation.y = -time * 0.15 * speed;
-      outerWireframeRef.current.rotation.z = time * 0.08;
+    if (sunRef.current) {
+      // Rotate the Sun
+      sunRef.current.rotation.y = time * 0.15;
       
-      const pulse = 1.25 + Math.cos(time * 1.5) * 0.06;
-      outerWireframeRef.current.scale.set(pulse, pulse, pulse);
+      // Pulse scale
+      const pulse = 1.0 + Math.sin(time * 2.5) * 0.02;
+      sunRef.current.scale.set(pulse, pulse, pulse);
     }
 
-    if (ringRef1.current) {
-      // Rotate ring 1
-      ringRef1.current.rotation.x = time * 0.4 * speed;
-      ringRef1.current.rotation.y = time * 0.1;
+    if (coronaRef.current) {
+      // Corona glow pulses slightly out of sync
+      const pulse = 1.06 + Math.cos(time * 2.0) * 0.03;
+      coronaRef.current.scale.set(pulse, pulse, pulse);
+      coronaRef.current.rotation.y = -time * 0.1;
     }
 
-    if (ringRef2.current) {
-      // Rotate ring 2 (different axis/speed)
-      ringRef2.current.rotation.y = -time * 0.35 * speed;
-      ringRef2.current.rotation.z = time * 0.2;
-    }
+    // Orbit rotations
+    orbitsRef.current.forEach((orbit, index) => {
+      if (orbit) {
+        // Rotate each group to revolve the planet around the sun
+        orbit.rotation.y = time * planetsData[index].speed * 0.4;
+      }
+    });
   });
 
   return (
-    <group
-      ref={groupRef}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
-    >
-      {/* 1. Glowing Inner Tech Sphere */}
-      <mesh ref={innerMeshRef}>
-        <sphereGeometry args={[0.9, 32, 32]} />
-        <meshPhysicalMaterial
-          color={colors.inner}
-          roughness={0.15}
-          metalness={0.1}
-          clearcoat={1.0}
-          clearcoatRoughness={0.1}
-          transmission={0.6}
-          thickness={0.8}
-          ior={1.5}
+    <group ref={groupRef}>
+      {/* 1. The Sun (Central Profile Node) */}
+      <mesh ref={sunRef}>
+        <sphereGeometry args={[0.55, 32, 32]} />
+        <meshBasicMaterial color="#fbbf24" />
+      </mesh>
+
+      {/* Sun Corona Glow */}
+      <mesh ref={coronaRef}>
+        <sphereGeometry args={[0.56, 32, 32]} />
+        <meshBasicMaterial
+          color="#f59e0b"
+          transparent
+          opacity={0.35}
+          blending={THREE.AdditiveBlending}
+          side={THREE.DoubleSide}
         />
       </mesh>
 
-      {/* 2. Outer Icosahedron Wireframe Cage */}
-      <mesh ref={outerWireframeRef}>
-        <icosahedronGeometry args={[1.0, 2]} />
-        <meshBasicMaterial
-          color={colors.outer}
-          wireframe
-          transparent
-          opacity={0.25}
-          blending={THREE.AdditiveBlending}
-        />
-      </mesh>
+      {/* 2. Orbiting Planets (Projects) */}
+      {planetsData.map((planet, index) => (
+        <group key={planet.name} ref={(el) => (orbitsRef.current[index] = el)}>
+          {/* Planet Orbit Path Ring */}
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <ringGeometry args={[planet.radius - 0.006, planet.radius + 0.006, 64]} />
+            <meshBasicMaterial
+              color="#ffffff"
+              transparent
+              opacity={0.06}
+              side={THREE.DoubleSide}
+            />
+          </mesh>
 
-      {/* 3. Orbiting Rings */}
-      {/* Ring 1 - Vertical Orbit */}
-      <mesh ref={ringRef1} rotation={[Math.PI / 4, 0, 0]}>
-        <torusGeometry args={[1.5, 0.015, 8, 64]} />
-        <meshBasicMaterial
-          color={colors.ring}
-          transparent
-          opacity={0.6}
-          blending={THREE.AdditiveBlending}
-        />
-      </mesh>
-
-      {/* Ring 2 - Horizontal Orbit */}
-      <mesh ref={ringRef2} rotation={[Math.PI / 2.5, Math.PI / 4, 0]}>
-        <torusGeometry args={[1.7, 0.012, 6, 64]} />
-        <meshBasicMaterial
-          color={colors.outer}
-          transparent
-          opacity={0.4}
-          blending={THREE.AdditiveBlending}
-        />
-      </mesh>
+          {/* Planet Sphere */}
+          <mesh position={[planet.radius, 0, 0]}>
+            <sphereGeometry args={[planet.size, 16, 16]} />
+            <meshStandardMaterial
+              color={planet.color}
+              roughness={0.3}
+              metalness={0.2}
+              bumpScale={0.05}
+            />
+          </mesh>
+        </group>
+      ))}
     </group>
   );
 }
