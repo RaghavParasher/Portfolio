@@ -186,7 +186,37 @@ export default function PortfolioSections() {
       <section id="projects" className="section">
         <h2 className="section-title">Projects</h2>
         <div className="projects-grid">
-          {/* Project 1 */}
+          {/* Project 1 - PulseMeet AI Platform */}
+          <div className="glass-card project-card">
+            <div>
+              <h3>PulseMeet AI Platform</h3>
+              <p className="project-desc">
+                Developed an intelligent AI-powered meeting transcription, summarization, and collaboration platform. Built with TypeScript and React, integrating speech-to-text processing and LLM-powered context engineering for instant meeting intelligence.
+              </p>
+            </div>
+            <div className="project-links">
+              <a href="https://github.com/RaghavParasher/PulseMeet-AI-Platform" target="_blank" rel="noopener noreferrer" className="project-link">
+                GitHub <Github size={16} />
+              </a>
+            </div>
+          </div>
+
+          {/* Project 2 - SkillForge Academy */}
+          <div className="glass-card project-card">
+            <div>
+              <h3>SkillForge Academy</h3>
+              <p className="project-desc">
+                Built an interactive tech education and learning management platform designed to streamline course delivery, track student progress, and manage educational resources. Engineered using the MERN stack with TypeScript.
+              </p>
+            </div>
+            <div className="project-links">
+              <a href="https://github.com/RaghavParasher/skillforge-academy" target="_blank" rel="noopener noreferrer" className="project-link">
+                GitHub <Github size={16} />
+              </a>
+            </div>
+          </div>
+
+          {/* Project 3 - Team Task Manager */}
           <div className="glass-card project-card">
             <div>
               <h3>Team Task Manager</h3>
@@ -195,13 +225,13 @@ export default function PortfolioSections() {
               </p>
             </div>
             <div className="project-links">
-              <a href="https://github.com/RaghavParasher" target="_blank" rel="noopener noreferrer" className="project-link">
+              <a href="https://github.com/RaghavParasher/Team-Task-Manager" target="_blank" rel="noopener noreferrer" className="project-link">
                 GitHub <Github size={16} />
               </a>
             </div>
           </div>
 
-          {/* Project 2 */}
+          {/* Project 4 - AI Study Buddy */}
           <div className="glass-card project-card">
             <div>
               <h3>AI Study Buddy</h3>
@@ -210,13 +240,28 @@ export default function PortfolioSections() {
               </p>
             </div>
             <div className="project-links">
-              <a href="https://github.com/RaghavParasher" target="_blank" rel="noopener noreferrer" className="project-link">
+              <a href="https://github.com/RaghavParasher/AI-STUDY-BUDDY" target="_blank" rel="noopener noreferrer" className="project-link">
                 GitHub <Github size={16} />
               </a>
             </div>
           </div>
 
-          {/* Project 3 */}
+          {/* Project 5 - Real-Time Chat Application */}
+          <div className="glass-card project-card">
+            <div>
+              <h3>Real-Time Chat Application</h3>
+              <p className="project-desc">
+                Created a real-time, event-driven chat application using React, Node.js, and WebSockets (Socket.io) for instant messaging, group rooms, and dynamic active-user indicators.
+              </p>
+            </div>
+            <div className="project-links">
+              <a href="https://github.com/RaghavParasher/real-time-chat-application" target="_blank" rel="noopener noreferrer" className="project-link">
+                GitHub <Github size={16} />
+              </a>
+            </div>
+          </div>
+
+          {/* Project 6 - Equi-Split */}
           <div className="glass-card project-card">
             <div>
               <h3>Equi-Split</h3>
@@ -225,7 +270,7 @@ export default function PortfolioSections() {
               </p>
             </div>
             <div className="project-links">
-              <a href="https://github.com/RaghavParasher" target="_blank" rel="noopener noreferrer" className="project-link">
+              <a href="https://github.com/RaghavParasher/equisplit" target="_blank" rel="noopener noreferrer" className="project-link">
                 GitHub <Github size={16} />
               </a>
             </div>
