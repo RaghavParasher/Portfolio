@@ -246,16 +246,16 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Project 5 - Real-Time Chat Application */}
+          {/* Project 5 - Pulse-Chat */}
           <div className="glass-card project-card">
             <div>
-              <h3>Real-Time Chat Application</h3>
+              <h3>Pulse-Chat</h3>
               <p className="project-desc">
                 Created a real-time, event-driven chat application using React, Node.js, and WebSockets (Socket.io) for instant messaging, group rooms, and dynamic active-user indicators.
               </p>
             </div>
             <div className="project-links">
-              <a href="https://github.com/RaghavParasher/real-time-chat-application" target="_blank" rel="noopener noreferrer" className="project-link">
+              <a href="https://github.com/RaghavParasher/Pulse-chat" target="_blank" rel="noopener noreferrer" className="project-link">
                 GitHub <Github size={16} />
               </a>
             </div>
@@ -272,6 +272,126 @@ export default function PortfolioSections() {
             <div className="project-links">
               <a href="https://github.com/RaghavParasher/equisplit" target="_blank" rel="noopener noreferrer" className="project-link">
                 GitHub <Github size={16} />
+              </a>
+            </div>
+          </div>
+
+          {/* Project 7 - Pipeline-IQ */}
+          <div className="glass-card project-card">
+            <div>
+              <h3>Pipeline-IQ</h3>
+              <p className="project-desc">
+                Enterprise B2B deal pipeline platform featuring weighted revenue forecasting, optimistic drag-and-drop Kanban, row-level RBAC, and AI deal-risk copilot. Built with Next.js 14, TypeScript, Prisma & Neon Postgres.
+              </p>
+            </div>
+            <div className="project-links">
+              <a href="https://github.com/RaghavParasher/pipeline-iq" target="_blank" rel="noopener noreferrer" className="project-link">
+                GitHub <Github size={16} />
+              </a>
+            </div>
+          </div>
+
+          {/* Project 8 - EcoPulse AI */}
+          <div className="glass-card project-card">
+            <div>
+              <h3>EcoPulse AI</h3>
+              <p className="project-desc">
+                Autonomous Carbon & Energy Grid Intelligence Platform. Winner of Reverie Hacks 2026 (Clean Energy Transition & Sustainability Track). Built to monitor carbon grid metrics and analyze clean energy transitions.
+              </p>
+            </div>
+            <div className="project-links">
+              <a href="https://github.com/RaghavParasher/-EcoPulse-AI" target="_blank" rel="noopener noreferrer" className="project-link">
+                GitHub <Github size={16} />
+              </a>
+              <a href="https://ecopulse-ai-delta.vercel.app/" target="_blank" rel="noopener noreferrer" className="project-link">
+                Demo <ExternalLink size={16} />
+              </a>
+            </div>
+          </div>
+
+          {/* Project 9 - CogniPath */}
+          <div className="glass-card project-card">
+            <div>
+              <h3>CogniPath</h3>
+              <p className="project-desc">
+                Adaptive AI Micro-Learning & Knowledge Flow Engine built for the Build Beyond Hackathon 2026. Creates customized, interactive pathways for micro-learning based on active learning feedback loop analysis.
+              </p>
+            </div>
+            <div className="project-links">
+              <a href="https://github.com/RaghavParasher/cognipath" target="_blank" rel="noopener noreferrer" className="project-link">
+                GitHub <Github size={16} />
+              </a>
+              <a href="https://cognipath-pi.vercel.app/" target="_blank" rel="noopener noreferrer" className="project-link">
+                Demo <ExternalLink size={16} />
+              </a>
+            </div>
+          </div>
+
+          {/* Project 10 - MedAssist Triage */}
+          <div className="glass-card project-card">
+            <div>
+              <h3>MedAssist Triage</h3>
+              <p className="project-desc">
+                AI Emergency Triage & Clinical Intake System built for HackDays Fatehpur 2026 (Healthcare & AI Track). Automatically handles patient intake, evaluates urgency levels, and prioritizes medical triage lists.
+              </p>
+            </div>
+            <div className="project-links">
+              <a href="https://github.com/RaghavParasher/MedAssist-Triage" target="_blank" rel="noopener noreferrer" className="project-link">
+                GitHub <Github size={16} />
+              </a>
+            </div>
+          </div>
+
+          {/* Project 11 - PixelForge Studio */}
+          <div className="glass-card project-card">
+            <div>
+              <h3>PixelForge Studio</h3>
+              <p className="project-desc">
+                AI Retro Game Asset & Chiptune Audio Suite built for the Pixel Forge AI Hackathon 2026. Generates pixel-art sprites and designs procedural chiptune game audio files instantly using integrated AI models.
+              </p>
+            </div>
+            <div className="project-links">
+              <a href="https://github.com/RaghavParasher/PixelForge-Studio" target="_blank" rel="noopener noreferrer" className="project-link">
+                GitHub <Github size={16} />
+              </a>
+              <a href="https://pixelforge-studio-lilac.vercel.app/" target="_blank" rel="noopener noreferrer" className="project-link">
+                Demo <ExternalLink size={16} />
+              </a>
+            </div>
+          </div>
+
+          {/* Project 12 - CanopyWatch AI */}
+          <div className="glass-card project-card">
+            <div>
+              <h3>CanopyWatch AI</h3>
+              <p className="project-desc">
+                Oregon Eco-Intelligence & Wildfire Physics Matrix built for OregonHacks 2026. Runs simulation algorithms to forecast wildfire spread vectors and analyze forest vegetation ecology index models.
+              </p>
+            </div>
+            <div className="project-links">
+              <a href="https://github.com/RaghavParasher/CanopyWatch-AI" target="_blank" rel="noopener noreferrer" className="project-link">
+                GitHub <Github size={16} />
+              </a>
+              <a href="https://canopywatch-ai.onrender.com/" target="_blank" rel="noopener noreferrer" className="project-link">
+                Demo <ExternalLink size={16} />
+              </a>
+            </div>
+          </div>
+
+          {/* Project 13 - ScribeGlass */}
+          <div className="glass-card project-card">
+            <div>
+              <h3>ScribeGlass</h3>
+              <p className="project-desc">
+                Spatial Storyboard & Scriptwriting Suite for Creators & Directors built for CUTC: Transform Hackathon 2026. Helps film directors structure acts, write scripts, and map out visual camera boards.
+              </p>
+            </div>
+            <div className="project-links">
+              <a href="https://github.com/RaghavParasher/scribeglass" target="_blank" rel="noopener noreferrer" className="project-link">
+                GitHub <Github size={16} />
+              </a>
+              <a href="https://scribeglass.vercel.app/" target="_blank" rel="noopener noreferrer" className="project-link">
+                Demo <ExternalLink size={16} />
               </a>
             </div>
           </div>

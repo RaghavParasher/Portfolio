@@ -40,8 +40,8 @@ export default function FloatingParticles({ count = 600 }) {
 
     for (let i = 0; i < count; i++) {
       // Group particles into concentric discs representing orbital lanes
-      const orbitIndex = i % 6;
-      const baseRadius = 1.0 + orbitIndex * 0.55 + Math.random() * 0.3;
+      const orbitIndex = i % 13;
+      const baseRadius = 1.0 + orbitIndex * 0.3 + Math.random() * 0.15;
       const theta = Math.random() * Math.PI * 2;
 
       // Position (creating a tilted, flat spiral disc structure)

@@ -139,14 +139,21 @@ export default function InteractiveHeroMesh({ activeSection }) {
   const sunRef = useRef();
   const orbitsRef = useRef([]);
 
-  // Data for the 6 planets representing your 6 projects
+  // Data for the 13 planets representing your 13 projects
   const planetsData = useMemo(() => [
-    { name: 'PulseMeet', radius: 1.25, speed: 0.9, size: 0.13, color: '#c084fc', type: 'marble' }, // Purple
-    { name: 'SkillForge', radius: 1.8, speed: 0.7, size: 0.15, color: '#38bdf8', type: 'gas' },     // Cyan
-    { name: 'TaskManager', radius: 2.35, speed: 0.52, size: 0.17, color: '#f472b6', type: 'craters' }, // Pink
-    { name: 'StudyBuddy', radius: 2.9, speed: 0.38, size: 0.14, color: '#34d399', type: 'marble' },  // Green
-    { name: 'ChatApp', radius: 3.45, speed: 0.26, size: 0.16, color: '#fbbf24', type: 'gas' },      // Yellow
-    { name: 'EquiSplit', radius: 4.0, speed: 0.18, size: 0.12, color: '#818cf8', type: 'craters' },   // Indigo
+    { name: 'PulseMeet', radius: 1.15, speed: 1.1, size: 0.08, color: '#c084fc', type: 'marble' },   // Purple
+    { name: 'SkillForge', radius: 1.45, speed: 0.95, size: 0.09, color: '#38bdf8', type: 'gas' },    // Cyan
+    { name: 'TaskManager', radius: 1.75, speed: 0.8, size: 0.10, color: '#f472b6', type: 'craters' },// Pink
+    { name: 'StudyBuddy', radius: 2.05, speed: 0.7, size: 0.085, color: '#34d399', type: 'marble' }, // Green
+    { name: 'Pulse-Chat', radius: 2.35, speed: 0.6, size: 0.095, color: '#fbbf24', type: 'gas' },    // Yellow
+    { name: 'EquiSplit', radius: 2.65, speed: 0.52, size: 0.08, color: '#818cf8', type: 'craters' },  // Indigo
+    { name: 'Pipeline-IQ', radius: 2.95, speed: 0.45, size: 0.11, color: '#f43f5e', type: 'marble' },// Rose
+    { name: 'EcoPulse', radius: 3.25, speed: 0.39, size: 0.10, color: '#10b981', type: 'gas' },     // Green/Teal
+    { name: 'CogniPath', radius: 3.55, speed: 0.33, size: 0.085, color: '#a78bfa', type: 'craters' },// Lavender
+    { name: 'MedAssist', radius: 3.85, speed: 0.28, size: 0.09, color: '#06b6d4', type: 'marble' },  // Light Blue
+    { name: 'PixelForge', radius: 4.15, speed: 0.23, size: 0.095, color: '#00f2fe', type: 'gas' },   // Teal/Mint
+    { name: 'CanopyWatch', radius: 4.45, speed: 0.19, size: 0.10, color: '#f97316', type: 'craters' },// Orange
+    { name: 'ScribeGlass', radius: 4.75, speed: 0.15, size: 0.09, color: '#d946ef', type: 'marble' } // Magenta
   ], []);
 
   // Memoize all procedural textures
