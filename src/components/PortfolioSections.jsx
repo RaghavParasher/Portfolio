@@ -453,7 +453,43 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 2 - JPMorgan Chase */}
+          {/* Certificate 2 - Oracle Agentic AI */}
+          <div className="glass-card cert-card">
+            <div className="cert-icon"><Award size={20} /></div>
+            <div className="cert-info">
+              <span className="cert-name">Agentic AI Certified Foundations Associate</span>
+              <span className="cert-issuer">Oracle (2026)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+
+          {/* Certificate 3 - Oracle AI Database */}
+          <div className="glass-card cert-card">
+            <div className="cert-icon"><Award size={20} /></div>
+            <div className="cert-info">
+              <span className="cert-name">Oracle AI Database Certified Foundations Associate</span>
+              <span className="cert-issuer">Oracle (2026)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+
+          {/* Certificate 4 - Walmart Global Tech */}
+          <div className="glass-card cert-card">
+            <div className="cert-icon"><Award size={20} /></div>
+            <div className="cert-info">
+              <span className="cert-name">Advanced Software Engineering Job Simulation</span>
+              <span className="cert-issuer">Walmart Global Tech (2026)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+
+          {/* Certificate 5 - JPMorgan Chase */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
@@ -465,7 +501,43 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 3 - Digital Heroes */}
+          {/* Certificate 6 - Hewlett Packard Enterprise */}
+          <div className="glass-card cert-card">
+            <div className="cert-icon"><Award size={20} /></div>
+            <div className="cert-info">
+              <span className="cert-name">Hewlett Packard Enterprise - Software Engineering Job Simulation</span>
+              <span className="cert-issuer">Forage (2026)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+
+          {/* Certificate 7 - Skyscanner */}
+          <div className="glass-card cert-card">
+            <div className="cert-icon"><Award size={20} /></div>
+            <div className="cert-info">
+              <span className="cert-name">Skyscanner - Software Engineering Job Simulation</span>
+              <span className="cert-issuer">Forage (2026)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+
+          {/* Certificate 8 - Digital Heroes AI */}
+          <div className="glass-card cert-card">
+            <div className="cert-icon"><Award size={20} /></div>
+            <div className="cert-info">
+              <span className="cert-name">AI Training Certification</span>
+              <span className="cert-issuer">Digital Heroes (2026)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+
+          {/* Certificate 9 - Digital Heroes Full Stack */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
@@ -477,19 +549,19 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 4 - Google Analytics */}
+          {/* Certificate 10 - TCS iON */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
-              <span className="cert-name">Google Analytics Certification</span>
-              <span className="cert-issuer">United Latino Students Association (2025)</span>
+              <span className="cert-name">TCS iON Career Edge - AI Foundation</span>
+              <span className="cert-issuer">Tata Consultancy Services (2026)</span>
               <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
                 View Certificate <ExternalLink size={12} />
               </a>
             </div>
           </div>
 
-          {/* Certificate 5 - HackerRank Software Engineer */}
+          {/* Certificate 11 - HackerRank Software Engineer */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
@@ -501,7 +573,7 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 6 - HackerRank React */}
+          {/* Certificate 12 - HackerRank React */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
@@ -513,24 +585,12 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 7 - HackerRank JS */}
+          {/* Certificate 13 - HackerRank JS */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
               <span className="cert-name">JavaScript (Intermediate)</span>
               <span className="cert-issuer">HackerRank (2026)</span>
-              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
-                View Certificate <ExternalLink size={12} />
-              </a>
-            </div>
-          </div>
-
-          {/* Certificate 8 - TCS iON */}
-          <div className="glass-card cert-card">
-            <div className="cert-icon"><Award size={20} /></div>
-            <div className="cert-info">
-              <span className="cert-name">AI Foundation Course</span>
-              <span className="cert-issuer">TCS iON (2026)</span>
               <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
                 View Certificate <ExternalLink size={12} />
               </a>
