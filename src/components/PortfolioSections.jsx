@@ -477,7 +477,19 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 4 - Walmart Global Tech */}
+          {/* Certificate 4 - Oracle Cloud Infrastructure AI */}
+          <div className="glass-card cert-card">
+            <div className="cert-icon"><Award size={20} /></div>
+            <div className="cert-info">
+              <span className="cert-name">Oracle Cloud Infrastructure Certified AI Foundations Associate</span>
+              <span className="cert-issuer">Oracle (2026)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+
+          {/* Certificate 5 - Walmart Global Tech */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
@@ -489,7 +501,7 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 5 - JPMorgan Chase */}
+          {/* Certificate 6 - JPMorgan Chase */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
@@ -501,7 +513,7 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 6 - Hewlett Packard Enterprise */}
+          {/* Certificate 7 - Hewlett Packard Enterprise */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
@@ -513,7 +525,7 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 7 - Skyscanner */}
+          {/* Certificate 8 - Skyscanner */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
@@ -525,7 +537,7 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 8 - Digital Heroes AI */}
+          {/* Certificate 9 - Digital Heroes AI */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
@@ -537,7 +549,7 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 9 - Digital Heroes Full Stack */}
+          {/* Certificate 10 - Digital Heroes Full Stack */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
@@ -549,7 +561,19 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 10 - TCS iON */}
+          {/* Certificate 11 - TCS iON Generative AI Essentials */}
+          <div className="glass-card cert-card">
+            <div className="cert-icon"><Award size={20} /></div>
+            <div className="cert-info">
+              <span className="cert-name">TCS iON Career Edge - Generative AI Essentials</span>
+              <span className="cert-issuer">Tata Consultancy Services (2026)</span>
+              <a href="https://www.linkedin.com/in/raghavparasher/details/certifications/" className="cert-link" target="_blank" rel="noopener noreferrer">
+                View Certificate <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+
+          {/* Certificate 12 - TCS iON AI Foundation */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
@@ -561,7 +585,7 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 11 - HackerRank Software Engineer */}
+          {/* Certificate 13 - HackerRank Software Engineer */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
@@ -573,7 +597,7 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 12 - HackerRank React */}
+          {/* Certificate 14 - HackerRank React */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
@@ -585,7 +609,7 @@ export default function PortfolioSections() {
             </div>
           </div>
 
-          {/* Certificate 13 - HackerRank JS */}
+          {/* Certificate 15 - HackerRank JS */}
           <div className="glass-card cert-card">
             <div className="cert-icon"><Award size={20} /></div>
             <div className="cert-info">
