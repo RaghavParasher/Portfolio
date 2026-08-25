@@ -10,7 +10,8 @@ import {
   Download, 
   Send, 
   FileText,
-  CheckCircle2
+  CheckCircle2,
+  Copy
 } from 'lucide-react';
 
 // Custom inline SVG icons for brand logos removed in Lucide v1.x
@@ -44,49 +45,51 @@ const Linkedin = ({ size = 24, ...props }) => (
     {...props}
   >
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect width="4" height="12" x="2" y="9" />
+    <rect x="2" y="9" width="4" height="12" />
     <circle cx="4" cy="4" r="2" />
   </svg>
 );
 
 
 export default function PortfolioSections() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
   const [sending, setSending] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('raghavparasher7@gmail.com');
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2500);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.name && formData.email && formData.message) {
       setSending(true);
-      
-      // Read Web3Forms key from Vite env variables or use fallback placeholder
-      const apiKey = import.meta.env.VITE_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
-      
       try {
-        const response = await fetch("https://api.web3forms.com/submit", {
+        const response = await fetch("https://formspree.io/f/mzdjwbve", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Accept: "application/json"
+            "Accept": "application/json"
           },
           body: JSON.stringify({
-            access_key: apiKey,
             name: formData.name,
             email: formData.email,
-            message: formData.message,
-            subject: `New Portfolio Message from ${formData.name}`,
-            from_name: "3D Resume Portfolio"
+            message: formData.message
           })
         });
 
-        const result = await response.json();
-        
-        if (result.success) {
+        if (response.ok) {
           setSubmitted(true);
           setFormData({ name: '', email: '', message: '' });
         } else {
-          alert("Failed to send message: " + result.message);
+          alert("Oops! There was a problem submitting your form. Please try again later.");
         }
       } catch (error) {
         alert("An error occurred while sending the message. Please check your connection.");
@@ -120,6 +123,9 @@ export default function PortfolioSections() {
           </a>
           <a href="#projects" className="btn-secondary">
             View Projects <ExternalLink size={18} />
+          </a>
+          <a href="/Raghav_Parasher_Resume.pdf" download="Raghav_Parasher_Resume.pdf" className="btn-resume">
+            Download Resume <Download size={18} />
           </a>
         </div>
       </section>
@@ -193,6 +199,13 @@ export default function PortfolioSections() {
               <p className="project-desc">
                 Developed an intelligent AI-powered meeting transcription, summarization, and collaboration platform. Built with TypeScript and React, integrating speech-to-text processing and LLM-powered context engineering for instant meeting intelligence.
               </p>
+              <div className="project-tech-stack">
+                <span className="tech-chip">TypeScript</span>
+                <span className="tech-chip">React.js</span>
+                <span className="tech-chip">Speech-to-Text</span>
+                <span className="tech-chip">LLM Context</span>
+                <span className="tech-chip">Node.js</span>
+              </div>
             </div>
             <div className="project-links">
               <a href="https://github.com/RaghavParasher/PulseMeet-AI-Platform" target="_blank" rel="noopener noreferrer" className="project-link">
@@ -208,6 +221,13 @@ export default function PortfolioSections() {
               <p className="project-desc">
                 Built an interactive tech education and learning management platform designed to streamline course delivery, track student progress, and manage educational resources. Engineered using the MERN stack with TypeScript.
               </p>
+              <div className="project-tech-stack">
+                <span className="tech-chip">TypeScript</span>
+                <span className="tech-chip">React.js</span>
+                <span className="tech-chip">Node.js</span>
+                <span className="tech-chip">MongoDB</span>
+                <span className="tech-chip">Express.js</span>
+              </div>
             </div>
             <div className="project-links">
               <a href="https://github.com/RaghavParasher/skillforge-academy" target="_blank" rel="noopener noreferrer" className="project-link">
@@ -223,6 +243,13 @@ export default function PortfolioSections() {
               <p className="project-desc">
                 Engineered a real-time collaborative task board using the MERN stack. Integrates JWT token authentication and role-based access control (RBAC) to allow secure team member task assignments, dashboard analytics, and collaborative workflow management.
               </p>
+              <div className="project-tech-stack">
+                <span className="tech-chip">React.js</span>
+                <span className="tech-chip">Node.js</span>
+                <span className="tech-chip">MongoDB</span>
+                <span className="tech-chip">JWT Auth</span>
+                <span className="tech-chip">RBAC</span>
+              </div>
             </div>
             <div className="project-links">
               <a href="https://github.com/RaghavParasher/Team-Task-Manager" target="_blank" rel="noopener noreferrer" className="project-link">
@@ -238,6 +265,12 @@ export default function PortfolioSections() {
               <p className="project-desc">
                 Developed scheduling logic to dynamically generate customized weekly study planners based on user course inputs. Integrated YouTube APIs to fetch relevant video references and structured personalized resources for an optimal learning workflow.
               </p>
+              <div className="project-tech-stack">
+                <span className="tech-chip">React.js</span>
+                <span className="tech-chip">Gemini AI</span>
+                <span className="tech-chip">YouTube API</span>
+                <span className="tech-chip">Node.js</span>
+              </div>
             </div>
             <div className="project-links">
               <a href="https://github.com/RaghavParasher/AI-STUDY-BUDDY" target="_blank" rel="noopener noreferrer" className="project-link">
@@ -253,6 +286,12 @@ export default function PortfolioSections() {
               <p className="project-desc">
                 Created a real-time, event-driven chat application using React, Node.js, and WebSockets (Socket.io) for instant messaging, group rooms, and dynamic active-user indicators.
               </p>
+              <div className="project-tech-stack">
+                <span className="tech-chip">React.js</span>
+                <span className="tech-chip">Node.js</span>
+                <span className="tech-chip">Socket.io</span>
+                <span className="tech-chip">WebSockets</span>
+              </div>
             </div>
             <div className="project-links">
               <a href="https://github.com/RaghavParasher/Pulse-chat" target="_blank" rel="noopener noreferrer" className="project-link">
@@ -268,6 +307,12 @@ export default function PortfolioSections() {
               <p className="project-desc">
                 Created responsive client dashboards in React to facilitate group creation, balance tracking, and bill settlements. Implemented optimized calculations for debt simplification and transaction distribution.
               </p>
+              <div className="project-tech-stack">
+                <span className="tech-chip">React.js</span>
+                <span className="tech-chip">Node.js</span>
+                <span className="tech-chip">MongoDB</span>
+                <span className="tech-chip">Algorithms</span>
+              </div>
             </div>
             <div className="project-links">
               <a href="https://github.com/RaghavParasher/equisplit" target="_blank" rel="noopener noreferrer" className="project-link">
@@ -283,6 +328,13 @@ export default function PortfolioSections() {
               <p className="project-desc">
                 Enterprise B2B deal pipeline platform featuring weighted revenue forecasting, optimistic drag-and-drop Kanban, row-level RBAC, and AI deal-risk copilot. Built with Next.js 14, TypeScript, Prisma & Neon Postgres.
               </p>
+              <div className="project-tech-stack">
+                <span className="tech-chip">Next.js 14</span>
+                <span className="tech-chip">TypeScript</span>
+                <span className="tech-chip">Prisma ORM</span>
+                <span className="tech-chip">Neon Postgres</span>
+                <span className="tech-chip">Tailwind CSS</span>
+              </div>
             </div>
             <div className="project-links">
               <a href="https://github.com/RaghavParasher/pipeline-iq" target="_blank" rel="noopener noreferrer" className="project-link">
@@ -298,6 +350,13 @@ export default function PortfolioSections() {
               <p className="project-desc">
                 Autonomous Carbon & Energy Grid Intelligence Platform designed to monitor real-time carbon grid metrics, track power efficiency, and model clean energy transitions.
               </p>
+              <div className="project-tech-stack">
+                <span className="tech-chip">React.js</span>
+                <span className="tech-chip">TypeScript</span>
+                <span className="tech-chip">Python</span>
+                <span className="tech-chip">Grid Analytics</span>
+                <span className="tech-chip">Clean Energy</span>
+              </div>
             </div>
             <div className="project-links">
               <a href="https://github.com/RaghavParasher/-EcoPulse-AI" target="_blank" rel="noopener noreferrer" className="project-link">
@@ -313,6 +372,13 @@ export default function PortfolioSections() {
               <p className="project-desc">
                 Adaptive AI Micro-Learning & Knowledge Flow Engine that creates customized, interactive pathways for personalized learning based on real-time comprehension feedback loop analysis.
               </p>
+              <div className="project-tech-stack">
+                <span className="tech-chip">React.js</span>
+                <span className="tech-chip">TypeScript</span>
+                <span className="tech-chip">LLM Flow</span>
+                <span className="tech-chip">Adaptive Engine</span>
+                <span className="tech-chip">Tailwind CSS</span>
+              </div>
             </div>
             <div className="project-links">
               <a href="https://github.com/RaghavParasher/cognipath" target="_blank" rel="noopener noreferrer" className="project-link">
@@ -328,6 +394,13 @@ export default function PortfolioSections() {
               <p className="project-desc">
                 AI Emergency Triage & Clinical Intake System that automatically streamlines patient registration, evaluates clinical urgency levels, and prioritizes medical triage queues.
               </p>
+              <div className="project-tech-stack">
+                <span className="tech-chip">React.js</span>
+                <span className="tech-chip">TypeScript</span>
+                <span className="tech-chip">Clinical NLP</span>
+                <span className="tech-chip">FastAPI</span>
+                <span className="tech-chip">Triage Logic</span>
+              </div>
             </div>
             <div className="project-links">
               <a href="https://github.com/RaghavParasher/MedAssist-Triage" target="_blank" rel="noopener noreferrer" className="project-link">
@@ -343,6 +416,13 @@ export default function PortfolioSections() {
               <p className="project-desc">
                 AI Retro Game Asset & Chiptune Audio Suite that generates pixel-art sprites, tilesets, and designs procedural chiptune audio files instantly using integrated multi-modal AI models.
               </p>
+              <div className="project-tech-stack">
+                <span className="tech-chip">React.js</span>
+                <span className="tech-chip">TypeScript</span>
+                <span className="tech-chip">Featherless AI</span>
+                <span className="tech-chip">Web Audio API</span>
+                <span className="tech-chip">Pixel Engine</span>
+              </div>
             </div>
             <div className="project-links">
               <a href="https://github.com/RaghavParasher/PixelForge-Studio" target="_blank" rel="noopener noreferrer" className="project-link">
@@ -358,6 +438,13 @@ export default function PortfolioSections() {
               <p className="project-desc">
                 Oregon Eco-Intelligence & Wildfire Physics Matrix that runs predictive simulation algorithms to forecast wildfire spread vectors and analyze forest vegetation ecology index models.
               </p>
+              <div className="project-tech-stack">
+                <span className="tech-chip">React.js</span>
+                <span className="tech-chip">Python</span>
+                <span className="tech-chip">Wildfire Physics</span>
+                <span className="tech-chip">GeoJSON</span>
+                <span className="tech-chip">Data Matrix</span>
+              </div>
             </div>
             <div className="project-links">
               <a href="https://github.com/RaghavParasher/CanopyWatch-AI" target="_blank" rel="noopener noreferrer" className="project-link">
@@ -373,6 +460,13 @@ export default function PortfolioSections() {
               <p className="project-desc">
                 Spatial Storyboard & Scriptwriting Suite designed for creators and directors to structure screenplays, write interactive scripts, and map out visual camera boards.
               </p>
+              <div className="project-tech-stack">
+                <span className="tech-chip">React.js</span>
+                <span className="tech-chip">TypeScript</span>
+                <span className="tech-chip">Spatial UI</span>
+                <span className="tech-chip">Script Engine</span>
+                <span className="tech-chip">Tailwind CSS</span>
+              </div>
             </div>
             <div className="project-links">
               <a href="https://github.com/RaghavParasher/scribeglass" target="_blank" rel="noopener noreferrer" className="project-link">
@@ -728,6 +822,28 @@ export default function PortfolioSections() {
           </div>
         </div>
       </section>
+
+      {/* Floating Quick Action Dock */}
+      <div className="floating-action-dock">
+        <a 
+          href="/Raghav_Parasher_Resume.pdf" 
+          download="Raghav_Parasher_Resume.pdf"
+          className="dock-item resume-dock"
+          title="Download Resume (PDF)"
+        >
+          <FileText size={15} />
+          <span>Resume</span>
+          <Download size={13} />
+        </a>
+        <button 
+          onClick={handleCopyEmail} 
+          className={`dock-item ${copiedEmail ? 'copied' : ''}`}
+          title="Click to copy email address"
+        >
+          {copiedEmail ? <CheckCircle2 size={15} color="#10b981" /> : <Copy size={15} />}
+          <span>{copiedEmail ? 'Copied Email!' : 'Copy Email'}</span>
+        </button>
+      </div>
     </>
   );
 }
