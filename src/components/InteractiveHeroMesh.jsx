@@ -164,43 +164,24 @@ export default function InteractiveHeroMesh({ activeSection }) {
     return planetsData.map(planet => createProceduralTexture(planet.color, planet.type));
   }, [planetsData]);
 
-  const shockPulseRef = useRef(1.0);
-
-  // Add click pulse listener
-  useEffect(() => {
-    const handlePointerDown = () => {
-      shockPulseRef.current = 1.35; // Trigger shockwave pulse on planets & sun
-    };
-    window.addEventListener('pointerdown', handlePointerDown);
-    return () => window.removeEventListener('pointerdown', handlePointerDown);
-  }, []);
-
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
-    const px = state.pointer ? state.pointer.x : (state.mouse ? state.mouse.x : 0);
-    const py = state.pointer ? state.pointer.y : (state.mouse ? state.mouse.y : 0);
-
-    // Lerp shockwave pulse back to normal scale
-    shockPulseRef.current = THREE.MathUtils.lerp(shockPulseRef.current, 1.0, 0.06);
 
     if (groupRef.current) {
-      // Gentle overall solar system drift + mouse gravity tilt
+      // Gentle overall solar system drift
       groupRef.current.position.y = Math.sin(time * 0.4) * 0.12;
       
-      // Slipped tilted perspective with mouse gravity interaction
-      groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, Math.PI / 4.8 + py * 0.15, 0.05);
-      groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, px * 0.22, 0.05);
-      groupRef.current.rotation.z = -Math.PI / 16;
+      // Slipped tilted perspective matching the mockup
+      groupRef.current.rotation.x = Math.PI / 4.8;  // Tilt on X axis
+      groupRef.current.rotation.z = -Math.PI / 16;  // Skew on Z axis
     }
 
     if (sunRef.current) {
-      // Rotate the Sun & apply pulse
+      // Rotate the Sun
       sunRef.current.rotation.y = time * 0.12;
-      const s = shockPulseRef.current || 1.0;
-      sunRef.current.scale.set(s, s, s);
     }
 
-    // Orbit rotations with smooth speed and subtle orbital breathing
+    // Orbit rotations
     orbitsRef.current.forEach((orbit, index) => {
       if (orbit) {
         orbit.rotation.y = time * planetsData[index].speed * 0.35;
