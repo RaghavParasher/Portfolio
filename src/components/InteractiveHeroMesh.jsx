@@ -177,6 +177,8 @@ export default function InteractiveHeroMesh({ activeSection }) {
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
+    const px = state.pointer ? state.pointer.x : (state.mouse ? state.mouse.x : 0);
+    const py = state.pointer ? state.pointer.y : (state.mouse ? state.mouse.y : 0);
 
     // Lerp shockwave pulse back to normal scale
     shockPulseRef.current = THREE.MathUtils.lerp(shockPulseRef.current, 1.0, 0.06);
@@ -186,15 +188,15 @@ export default function InteractiveHeroMesh({ activeSection }) {
       groupRef.current.position.y = Math.sin(time * 0.4) * 0.12;
       
       // Slipped tilted perspective with mouse gravity interaction
-      groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, Math.PI / 4.8 + state.pointer.y * 0.15, 0.05);
-      groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, state.pointer.x * 0.22, 0.05);
+      groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, Math.PI / 4.8 + py * 0.15, 0.05);
+      groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, px * 0.22, 0.05);
       groupRef.current.rotation.z = -Math.PI / 16;
     }
 
     if (sunRef.current) {
       // Rotate the Sun & apply pulse
       sunRef.current.rotation.y = time * 0.12;
-      const s = shockPulseRef.current;
+      const s = shockPulseRef.current || 1.0;
       sunRef.current.scale.set(s, s, s);
     }
 
