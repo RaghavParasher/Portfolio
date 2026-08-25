@@ -62,7 +62,7 @@ export default function PortfolioSections() {
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('raghavparasher7@gmail.com');
+    navigator.clipboard.writeText('raghavparashar905@gmail.com');
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2500);
   };
